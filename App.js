@@ -1,56 +1,22 @@
-// const heading = React.createElement(
-//     "h1",
-//     { id: 'heading' },
-//     "Hello from React"
-// );
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-//What if I want to create something like the below
-{/* <div id="parent">
-    <div id="child1">
-        <h1>I'm h1 tag</h1>
-        <h2>I'm h2 tag</h2>
+const jsxHeading = <h1 className="head">This is JSX syntax</h1>;
+// React Functional Component
+const Title = () => {
+  return <h1 className="title">This is react fun comp's title.</h1>;
+};
+const Heading = () => {
+  return (
+    <div>
+      <Title />
+      <h1 className="mainHeading">React fun comp.</h1>
+      {jsxHeading}
     </div>
-    <div id="child2">
-        <h1>I'm h1 tag</h1>
-        <h2>I'm h2 tag</h2>
-    </div>
-</div> */}
-
-const heading = React.createElement(
-    "div",
-    { id: 'parent' },
-    [React.createElement(
-        "div",
-        { id: 'child1' },
-        [React.createElement(
-            "h1",
-            {},
-            "I'm h1 tag"
-        ),
-        React.createElement(
-            "h2",
-            {},
-            "I'm h2 tag"
-        )
-        ]
-    ),
-    React.createElement(
-        "div",
-        { id: 'child2' },
-        [React.createElement(
-            "h1",
-            {},
-            "I'm h1 tag"
-        ),
-        React.createElement(
-            "h2",
-            {},
-            "I'm h2 tag"
-        )
-        ]
-    )
-    ]
-);
-console.log(heading)
+  );
+};
+// or we can write it directly without return if it's single line and it's the same as above
+// const Heading = () => <h1>This is react fun comp.</h1>
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading)
+// root.render(jsxHeading)
+root.render(<Heading />);
